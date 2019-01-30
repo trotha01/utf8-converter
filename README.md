@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deploy to GHPages
+
+```
+yarn run predeploy
+yarn run ghdeploy
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-const utf8 = require('utf8');
+// const utf8 = require('utf8');
 const encoding = require ('encoding-japanese');
 
 function fileChanged(file, setState) {
@@ -26,13 +26,19 @@ const fileLoaded = (reader, setState) => event => {
     })
     return
   }
+  if (encodingType === 'UNICODE' || encodingType === 'UTF16') {
+    setState({
+      description: "This file is utf16, no conversion needed",
+      loading: false
+    })
+    return
+  }
 
-  // downloadLink.href = 'data:text/csv; charset=utf-8,' + utf8.encode(content)
-  // downloadLink.click()
   setState({
     description: "Converted",
     before: content,
-    after: utf8.encode(content),
+    // after: utf8.encode(content),
+    after: encoding.convert(content, 'UTF16'),
     loading: false
   })
 }

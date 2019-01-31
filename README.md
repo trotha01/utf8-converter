@@ -3,6 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Deploy to GHPages
 
 ```
+rm -rf node_modules/gh-pages/.cache
+
 yarn run predeploy
 yarn run ghdeploy
 ```

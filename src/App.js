@@ -26,6 +26,7 @@ const fileLoaded = (reader, setState) => event => {
     })
     return
   }
+  /*
   if (encodingType === 'UNICODE' || encodingType === 'UTF16') {
     setState({
       description: "This file is utf16, no conversion needed",
@@ -33,12 +34,14 @@ const fileLoaded = (reader, setState) => event => {
     })
     return
   }
+  */
 
   setState({
-    description: "Converted",
+    description: `The file was ${encodingType}. Converted to UTF16`,
     before: content,
     // after: utf8.encode(content),
-    after: encoding.convert(content, 'UTF16'),
+    // after: encoding.convert(content, 'UTF16'),
+    after: encoding.convert(content, 'UTF8'),
     loading: false
   })
 }
